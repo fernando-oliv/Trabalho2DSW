@@ -1,6 +1,6 @@
 package br.ufscar.dc.dsw.domain;
 
-import java.util.Set;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -30,7 +30,7 @@ public class Destino {
     private String pais;
 
     @ManyToMany(targetEntity = PacoteTuristico.class, mappedBy = "destino", fetch = FetchType.EAGER)
-	private Set<PacoteTuristico> pacotes;
+	private List<PacoteTuristico> pacotes;
 
 
     public Destino(String cidade, String estado, String pais) {
@@ -61,5 +61,13 @@ public class Destino {
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    public void setPacotes(List<PacoteTuristico> pacotes){
+        this.pacotes = pacotes;
+    }
+
+    public List<PacoteTuristico> getPacotes() {
+        return this.pacotes;
     }
 }

@@ -20,11 +20,11 @@ public class Foto {
 
     @ManyToOne
 	@JoinColumn(name = "pacote_id")
-	private PacoteTuristico idPacote;
+	private PacoteTuristico pacote;
 
-    public Foto(Long idPacote, String url) {
-        this.setIdPacote(idPacote);
-        this.setUrl(url);
+    public Foto(PacoteTuristico pacote, String url) {
+        this.pacote = pacote;
+        this.url = url;
     }
 
     public Foto(String url) {
@@ -32,12 +32,12 @@ public class Foto {
         this.setUrl(url);
     }
 
-    public Long getIdPacote() {
-        return idPacote;
+    public PacoteTuristico getPacote() {
+        return pacote;
     }
 
-    public void setIdPacote(Long idPacote) {
-        this.idPacote = idPacote;
+    public void setPacote(PacoteTuristico pacote) {
+        this.pacote = pacote;
     }
 
     public String getUrl() {

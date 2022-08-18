@@ -3,7 +3,6 @@ package br.ufscar.dc.dsw.domain;
 import java.sql.Timestamp;
 import java.util.List;
 
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +27,7 @@ public class PacoteTuristico {
 	private Agencia agencia;
 
     @ManyToMany(targetEntity = Destino.class)
-	private Set<Destino> destino;
+	private List<Destino> destino;
 
     @Column(nullable = false)
     private Timestamp dataPartida;
@@ -46,7 +45,7 @@ public class PacoteTuristico {
 	private List<Foto> fotos;
 
 
-    public PacoteTuristico(Long id, Agencia agencia, Destino destino, Timestamp dataPartida, Integer duracaoDias,
+    public PacoteTuristico(Long id, Agencia agencia, List<Destino> destino, Timestamp dataPartida, Integer duracaoDias,
             Float valor, String descricao, List<Foto> fotos) {
         this.setId(id);
         this.setAgencia(agencia);
@@ -58,7 +57,7 @@ public class PacoteTuristico {
         this.setFotos(fotos);
     }
 
-    public PacoteTuristico(Agencia agencia, Destino destino, Timestamp dataPartida, Integer duracaoDias,
+    public PacoteTuristico(Agencia agencia, List<Destino> destino, Timestamp dataPartida, Integer duracaoDias,
             Float valor, String descricao, List<Foto> fotos) {
         super();
         this.setAgencia(agencia);
@@ -119,10 +118,10 @@ public class PacoteTuristico {
         this.descricao = descricao;
     }
 
-    public Set<Destino> getDestino() {
+    public List<Destino> getDestino() {
 		return destino;
 	}
-	public void setDestino(Set<Destino> destino) {
+	public void setDestino(List<Destino> destino) {
 		this.destino = destino;
 	}
 

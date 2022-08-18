@@ -1,6 +1,6 @@
 package br.ufscar.dc.dsw.domain;
 
-import java.util.Set;
+import java.util.List;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ public class Cliente extends Usuario {
 
 
 	@ManyToMany(targetEntity = PacoteTuristico.class)
-	private Set<PacoteTuristico> pacotesComprados;
+	private List<PacoteTuristico> pacotesComprados;
 
 	public Cliente(String nome, String email, String senha, String tipo, String cpf, String telefone, String sexo, Timestamp dataNascimento) {
 		super(nome, email, senha, tipo);
@@ -68,11 +68,11 @@ public class Cliente extends Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-	public Set<PacoteTuristico> getPacotesComprados() {
+	public List<PacoteTuristico> getPacotesComprados() {
 		return pacotesComprados;
 	}
 
-	public void setComprados(Set<PacoteTuristico> pacotesComprados) {
+	public void setComprados(List<PacoteTuristico> pacotesComprados) {
 		this.pacotesComprados = pacotesComprados;
 	}
 
