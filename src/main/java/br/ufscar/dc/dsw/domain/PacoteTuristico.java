@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.FetchType;
+
 
 @Entity
 @Table(name = "PacoteTuristico")
@@ -25,6 +27,7 @@ public class PacoteTuristico {
     @ManyToOne
 	@JoinColumn(name = "agencia_id")
 	private Agencia agencia;
+
 
     @ManyToMany(targetEntity = Destino.class)
 	private List<Destino> destino;
@@ -41,8 +44,11 @@ public class PacoteTuristico {
 	@Column(nullable = false, unique = false, length = 100)
 	private String descricao;
 
-	@OneToMany(mappedBy = "PacoteTuristico")
+	@OneToMany(mappedBy = "pacote")
 	private List<Foto> fotos;
+
+    @ManyToMany(targetEntity = Cliente.class, mappedBy = "pacotesComprados", fetch = FetchType.EAGER)
+    private List<Cliente> clientes;
 
 
     public PacoteTuristico(Long id, Agencia agencia, List<Destino> destino, Timestamp dataPartida, Integer duracaoDias,

@@ -17,7 +17,7 @@ public class Agencia extends Usuario {
 	@Column(nullable = false, unique = false, length = 100)
 	private String descricao;
 
-	@OneToMany(mappedBy = "Agencia")
+	@OneToMany(mappedBy = "agencia")
 	private List<PacoteTuristico> pacotes;
 	
 	public Agencia(Long id){
