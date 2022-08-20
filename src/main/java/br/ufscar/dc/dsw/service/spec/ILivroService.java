@@ -2,15 +2,15 @@ package br.ufscar.dc.dsw.service.spec;
 
 import java.util.List;
 
-import br.ufscar.dc.dsw.domain.Livro;
+import br.ufscar.dc.dsw.domain.PacoteTuristico;
 
-public interface ILivroService {
+public interface IPacoteService {
 
-	Livro buscarPorId(Long id);
+	Pacote buscarPorId(Long id);
 	
-	List<Livro> buscarTodos();
+	List<PacoteTuristico> buscarTodos();
 	
-	void salvar(Livro livro);
+	void salvar(PacoteTuristico pacote);
 	
 	void excluir(Long id);
 	
