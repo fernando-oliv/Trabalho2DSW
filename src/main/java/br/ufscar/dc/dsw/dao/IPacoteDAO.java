@@ -9,7 +9,7 @@ import br.ufscar.dc.dsw.domain.PacoteTuristico;
 @SuppressWarnings("unchecked")
 public interface IPacoteDAO extends CrudRepository<PacoteTuristico, Long>{
 
-	Livro findById(long id);
+	PacoteTuristico findById(long id);
 
 	List<PacoteTuristico> findAll();
 	

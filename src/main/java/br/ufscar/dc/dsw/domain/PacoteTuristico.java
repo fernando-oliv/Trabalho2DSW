@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @SuppressWarnings("serial")
 @Entity
@@ -50,11 +51,11 @@ public class PacoteTuristico extends AbstractEntity<Long> {
 	}
 
 	public String getData() {
-        return data;
+        return dataPartida;
     }
 
     public void setData(String data) {
-        this.data = data;
+        this.dataPartida = data;
     }
 
 	public BigDecimal getPreco() {

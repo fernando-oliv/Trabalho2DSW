@@ -26,7 +26,7 @@ public class PacoteService implements IPacoteService {
 	}
 
 	@Transactional(readOnly = true)
-	public Livro buscarPorId(Long id) {
+	public PacoteTuristico buscarPorId(Long id) {
 		return dao.findById(id.longValue());
 	}
 
