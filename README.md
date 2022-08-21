@@ -10,6 +10,8 @@ Adicionar etapa para inserção da proposta de compra do cliente
 
 Modificar a forma de cadastro: mudar para fazer cadastro mesmo sem login de admin
 
+Alterar imagens em static
+
 ### menos urgentes:
 Adicionar Passos necessários para armazenar e mostrar as fotos
 
