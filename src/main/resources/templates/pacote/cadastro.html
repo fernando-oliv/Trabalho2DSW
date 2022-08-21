@@ -41,8 +41,8 @@
 					</div>
 
 					<div class="form-group col-md-6">
-						<label th:text="#{pacote.destino.label}" for="nome"></label> 
-						<input type="text" class="form-control" id="nome" placeholder="Destino"
+						<label th:text="#{pacote.destino.label}" for="destino"></label> 
+						<input type="text" class="form-control" id="destino" placeholder="Destino"
 							autofocus="autofocus" th:field="*{destino}"
 							th:classappend="${#fields.hasErrors('destino')} ? is-invalid" />
 						

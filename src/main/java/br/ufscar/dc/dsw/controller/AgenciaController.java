@@ -59,7 +59,7 @@ public class AgenciaController {
         usuario.setUsername(agencia.getEmail());
         usuario.setCPF(agencia.getCNPJ());
         usuario.setPassword(agencia.getPassword());
-        usuario.setRole("AGENCIA");
+        usuario.setRole("ROLE_AGENCIA");
         usuario.setName(agencia.getNome());
         uservice.salvar(usuario);
 		attr.addFlashAttribute("sucess", "agencia.create.sucess");

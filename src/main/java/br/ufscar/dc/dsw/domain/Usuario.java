@@ -39,7 +39,7 @@ public class Usuario extends AbstractEntity<Long> {
     private String dataNascimento;
     
     @NotBlank
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 18)
     private String role;
     
     @Column(nullable = false)
