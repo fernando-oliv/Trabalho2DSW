@@ -1,4 +1,4 @@
-# Trabalho2DSW
+### Trabalho2DSW
 Trabalho de DSW1 com base no documento de requisitos B - Turismo.
 
 ## A fazer:
@@ -17,7 +17,7 @@ Alterar os .properties de outras linguas
 
 
 
-## Passos feitos:
+# Passos feitos:
 CRUD do admin feito
 Listagem dos pacotes turísticos
 Listagem dos pacotes comprados
