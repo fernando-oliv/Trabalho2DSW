@@ -23,7 +23,7 @@ public class Usuario extends AbstractEntity<Long> {
     private String name;
     
     @NotBlank
-    @Column(nullable = false, length = 14)
+    @Column(nullable = false, length = 18)
     private String CPF;
 
     @Column(nullable = true, length = 60)

@@ -3,6 +3,7 @@ package br.ufscar.dc.dsw.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufscar.dc.dsw.domain.Agencia;
 import br.ufscar.dc.dsw.service.spec.IAgenciaService;
+import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.service.spec.IUsuarioService;
+
 
 @Controller
 @RequestMapping("/agencias")
@@ -21,6 +25,12 @@ public class AgenciaController {
 	
 	@Autowired
 	private IAgenciaService service;
+
+    @Autowired
+    private IUsuarioService uservice;
+    
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(Agencia agencia) {
@@ -37,10 +47,21 @@ public class AgenciaController {
 	public String salvar(@Valid Agencia agencia, BindingResult result, RedirectAttributes attr) {
 		
 		if (result.hasErrors()) {
+            System.out.println(result);
 			return "agencia/cadastro";
 		}
-		
+        
+        System.out.println("password = " + agencia.getPassword());
+
+        agencia.setPassword(encoder.encode(agencia.getPassword()));
 		service.salvar(agencia);
+        Usuario usuario = new Usuario();
+        usuario.setUsername(agencia.getEmail());
+        usuario.setCPF(agencia.getCNPJ());
+        usuario.setPassword(agencia.getPassword());
+        usuario.setRole("AGENCIA");
+        usuario.setName(agencia.getNome());
+        uservice.salvar(usuario);
 		attr.addFlashAttribute("sucess", "agencia.create.sucess");
 		return "redirect:/agencias/listar";
 	}
@@ -59,6 +80,8 @@ public class AgenciaController {
 		if (result.getFieldErrorCount() > 1 || result.getFieldError("CNPJ") == null) {
 			return "agencia/cadastro";
 		}
+
+        System.out.println(agencia.getPassword());
 
 		service.salvar(agencia);
 		attr.addFlashAttribute("sucess", "agencia.edit.sucess");
