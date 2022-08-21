@@ -31,6 +31,7 @@ public class JamesVacationApplication {
 			u1.setPassword(encoder.encode("admin"));
 			u1.setCPF("012.345.678-90");
 			u1.setName("Administrador");
+            u1.setDataNascimento("2001");
 			u1.setRole("ROLE_ADMIN");
 			u1.setEnabled(true);
 			usuarioDAO.save(u1);
@@ -40,6 +41,7 @@ public class JamesVacationApplication {
 			u2.setPassword(encoder.encode("123"));
 			u2.setCPF("985.849.614-10");
 			u2.setName("Beltrano Andrade");
+            u2.setDataNascimento("2001");
 			u2.setRole("ROLE_USER");
 			u2.setEnabled(true);
 			usuarioDAO.save(u2);
@@ -49,23 +51,30 @@ public class JamesVacationApplication {
 			u3.setPassword(encoder.encode("123"));
 			u3.setCPF("367.318.380-04");
 			u3.setName("Fulano Silva");
+            u3.setDataNascimento("2001");
 			u3.setRole("ROLE_USER");
 			u3.setEnabled(true);
 			usuarioDAO.save(u3);
 			
 			Agencia e1 = new Agencia();
 			e1.setCNPJ("55.789.390/0008-99");
+            e1.setEmail("teste@teste.com");
 			e1.setNome("Companhia das Letras");
+            e1.setPassword("123");
 			agenciaDAO.save(e1);
 			
 			Agencia e2 = new Agencia();
 			e2.setCNPJ("71.150.470/0001-40");
+            e2.setEmail("teste@teste.com");
 			e2.setNome("Record");
+            e2.setPassword("123");
 			agenciaDAO.save(e2);
 			
 			Agencia e3 = new Agencia();
 			e3.setCNPJ("32.106.536/0001-82");
+            e3.setEmail("teste@teste.com");
 			e3.setNome("Objetiva");
+            e3.setPassword("123");
 			agenciaDAO.save(e3);
 			
 			PacoteTuristico l1 = new PacoteTuristico();

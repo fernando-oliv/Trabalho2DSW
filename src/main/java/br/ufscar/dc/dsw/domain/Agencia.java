@@ -28,7 +28,7 @@ public class Agencia extends AbstractEntity<Long> {
 	private String nome;
 
     @Size(min=0, max = 140)
-    @Column(nullable = false, unique = false, length = 140)
+    @Column(nullable = true, unique = false, length = 140)
     private String descricao;
 
     @NotBlank
@@ -81,5 +81,13 @@ public class Agencia extends AbstractEntity<Long> {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

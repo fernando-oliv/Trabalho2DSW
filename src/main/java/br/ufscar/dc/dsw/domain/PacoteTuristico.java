@@ -23,8 +23,7 @@ public class PacoteTuristico extends AbstractEntity<Long> {
 	private String destino;
 
     
-	@NotNull(message = "{NotNull.pacote.data}")
-	@Column(nullable = false, length = 10)
+	@Column(nullable = true, length = 10)
 	private String dataPartida;
 	
 	@NotNull(message = "{NotNull.livro.preco}")
@@ -32,10 +31,9 @@ public class PacoteTuristico extends AbstractEntity<Long> {
 	private BigDecimal preco;
 
     
-	@NotBlank(message = "{NotBlank.pacote.foto}")
     @Size(min = 1, max = 10)
-    @Column(nullable = false, length = 10)
-    private List<String> fotos;
+    @Column(nullable = true, length = 10)
+    private String fotos;
 
     @NotNull(message = "{NotNull.pacote.agencia}")
 	@ManyToOne
@@ -74,11 +72,11 @@ public class PacoteTuristico extends AbstractEntity<Long> {
 		this.agencia = agencia;
 	}
 
-    public void setFotos(List<String> fotos) {
+    public void setFotos(String fotos) {
         this.fotos = fotos;
     }
 
-    public List<String> getFotos() {
+    public String getFotos() {
         return fotos;
     }
 }

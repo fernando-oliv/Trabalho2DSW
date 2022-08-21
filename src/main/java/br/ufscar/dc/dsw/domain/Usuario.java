@@ -26,20 +26,16 @@ public class Usuario extends AbstractEntity<Long> {
     @Column(nullable = false, length = 14)
     private String CPF;
 
-    @NotBlank
-    @Column(nullable = false, length = 60)
+    @Column(nullable = true, length = 60)
     private String email;
 
-    @NotBlank
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String telefone;
 
-    @NotBlank
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String sexo;
 
-    @NotBlank
-    @Column(nullable = false, length = 20)
+    @Column(nullable = true, length = 20)
     private String dataNascimento;
     
     @NotBlank
