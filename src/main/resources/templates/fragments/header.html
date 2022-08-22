@@ -19,6 +19,18 @@
 							</div>
 						</form>
 					</div>
+
+                    <div sec:authorize="!isAuthenticated()" style="right: 10px; position: absolute">
+                            <div class="col">
+                                <div class="col-sm-12 col-sm-offset-3">
+                                    <a href="/login">Login</a>
+                                </div>
+                                <div class="col-sm-18 col-sm-offset-3">
+                                    <a href="/usuarios/cadastrar">Cadastre-se</a>
+                                </div>
+                            </div>
+                    </div>
+
 					<div style="right: 100px; position: absolute">
 						<a th:href="@{''(lang=pt)}"><img alt=""
 							th:src="@{/image/Brasil.gif}" style="width: 30px;" /></a> <a

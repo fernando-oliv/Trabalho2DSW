@@ -58,43 +58,51 @@ public class JamesVacationApplication {
 			
 			Agencia e1 = new Agencia();
 			e1.setCNPJ("55.789.390/0008-99");
-            e1.setEmail("teste@teste.com");
-			e1.setNome("Companhia das Letras");
-            e1.setPassword("123");
+            e1.setEmail("teste1@teste.com");
+			e1.setNome("Golaço");
+            e1.setPassword(encoder.encode("123"));
 			agenciaDAO.save(e1);
+            Usuario temp = new Usuario();
+            temp.setUsername(e1.getEmail());
+            temp.setPassword(e1.getPassword());
+            temp.setCPF(e1.getCNPJ());
+            temp.setName(e1.getNome());
+            temp.setRole("ROLE_AGENCIA");
+            usuarioDAO.save(temp);
+            
 			
 			Agencia e2 = new Agencia();
 			e2.setCNPJ("71.150.470/0001-40");
-            e2.setEmail("teste@teste.com");
-			e2.setNome("Record");
+            e2.setEmail("teste2@teste.com");
+			e2.setNome("LATAMANHO");
             e2.setPassword("123");
 			agenciaDAO.save(e2);
 			
 			Agencia e3 = new Agencia();
 			e3.setCNPJ("32.106.536/0001-82");
-            e3.setEmail("teste@teste.com");
-			e3.setNome("Objetiva");
+            e3.setEmail("teste3@teste.com");
+			e3.setNome("Passamedo");
             e3.setPassword("123");
 			agenciaDAO.save(e3);
 			
 			PacoteTuristico l1 = new PacoteTuristico();
-			l1.setDestino("Ensaio sobre a Cegueira");
-			l1.setData("1995");
-			l1.setPreco(BigDecimal.valueOf(54.9));
+			l1.setDestino("São paulo");
+			l1.setDataPartida("10-12-2021");
+			l1.setPreco(BigDecimal.valueOf(540.9));
 			l1.setAgencia(e1);
 			pacoteDAO.save(l1);
 			
 			PacoteTuristico l2 = new PacoteTuristico();
-			l2.setDestino("Cem anos de Solidão");
-			l2.setData("1977");
-			l2.setPreco(BigDecimal.valueOf(59.9));
+			l2.setDestino("Campinas");
+			l2.setDataPartida("22-10-2022");
+			l2.setPreco(BigDecimal.valueOf(300.99));
 			l2.setAgencia(e2);
 			pacoteDAO.save(l2);
 			
 			PacoteTuristico l3 = new PacoteTuristico();
-			l3.setDestino("Diálogos Impossíveis");
-			l3.setData("2012");
-			l3.setPreco(BigDecimal.valueOf(22.9));
+			l3.setDestino("Santos");
+			l3.setDataPartida("15-05-2024");
+			l3.setPreco(BigDecimal.valueOf(999.99));
 			l3.setAgencia(e3);
 			pacoteDAO.save(l3);
 		};

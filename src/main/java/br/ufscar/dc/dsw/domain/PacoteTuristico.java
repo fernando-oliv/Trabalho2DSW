@@ -23,7 +23,7 @@ public class PacoteTuristico extends AbstractEntity<Long> {
 	private String destino;
 
     
-	@Column(nullable = true, length = 10)
+	@Column(nullable = false, length = 15)
 	private String dataPartida;
 	
 	@NotNull(message = "{NotNull.livro.preco}")
@@ -48,11 +48,11 @@ public class PacoteTuristico extends AbstractEntity<Long> {
 		this.destino = destino;
 	}
 
-	public String getData() {
+	public String getDataPartida() {
         return dataPartida;
     }
 
-    public void setData(String data) {
+    public void setDataPartida(String data) {
         this.dataPartida = data;
     }
 

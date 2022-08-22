@@ -14,9 +14,9 @@
 					</li>
 				</ul>
 			</div>
-			<a class="btn btn-primary btn-md" th:href="@{/pacotes/cadastrar}" role="button"> 
+			<a sec:authorize="hasRole('ROLE_AGENCIA')" class="btn btn-primary btn-md" th:href="@{/pacotes/cadastrar}" role="button"> 
 				<span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span> 
-				<span th:text="#{pacotes.cadastrar.label}"></span>
+				<span th:text="#{pacote.cadastrar.label}"></span>
 			</a>
 		</nav>
 
@@ -29,22 +29,18 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th th:text="#{pacote.agencia.descricao.label}"></th>
 							<th th:text="#{pacote.destino.label}"></th>
-							<th th:text="#{pacote.agencia.label}"></th>
 							<th th:text="#{pacote.dataPartida.label}"></th>
 							<th th:text="#{pacote.preco.label}"></th>
 							<th th:text="#{acao.label}"></th>
 						</tr>
 					</thead>
 					<tbody>						
-						<tr th:each="livro : ${pacote}">
-							<td th:text="${pacote.id}"></td>
+						<tr th:each="pacote : ${pacotes}">
 							<td th:text="${pacote.destino}"></td>
-							<td th:text="${pacote.agencia.descricao}"></td>
 							<td th:text="${pacote.dataPartida}"></td>
 							<td th:text="|R$ ${#numbers.formatDecimal(pacote.preco,2,2,'COMMA')}|"></td>
-							<td colspan="2">
+							<td colspan="2" sec:authorize="hasRole('ROLE_AGENCIA')">
 								<a class="btn btn-info btn-sm"
 									th:href="@{/pacotes/editar/{id} (id=${pacote.id}) }" role="button"> 
 									<span class="oi oi-brush" th:title="#{link.editar.label}" aria-hidden="true"></span>

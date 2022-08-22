@@ -35,10 +35,11 @@ public class CompraController {
 	private IPacoteService PacoteTuristicoService;
 	
 	@GetMapping("/cadastrar")
-	public String cadastrar(Compra compra) {
+	public String cadastrar(ModelMap model, Compra compra) {
 		String data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
 		compra.setUsuario(this.getUsuario());
 		compra.setData(data);
+        model.addAttribute("pacotes", PacoteTuristicoService.buscarTodos());
 		return "compra/cadastro";
 	}
 	

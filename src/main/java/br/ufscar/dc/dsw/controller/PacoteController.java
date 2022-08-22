@@ -31,7 +31,9 @@ public class PacoteController {
 	private IAgenciaService agenciaService;
 
 	@GetMapping("/cadastrar")
-	public String cadastrar(PacoteTuristico pacote) {
+	public String cadastrar(ModelMap model) {
+        PacoteTuristico pacote = new PacoteTuristico();
+        model.addAttribute("pacote", pacote);
 		return "pacote/cadastro";
 	}
 
@@ -49,7 +51,7 @@ public class PacoteController {
 		}
 
 		pacoteService.salvar(pacote);
-		attr.addFlashAttribute("sucess", "livro.create.sucess");
+		attr.addFlashAttribute("sucess", "pacote.create.sucess");
 		return "redirect:/pacotes/listar";
 	}
 
@@ -67,14 +69,14 @@ public class PacoteController {
 		}
 
 		pacoteService.salvar(pacote);
-		attr.addFlashAttribute("sucess", "livro.edit.sucess");
+		attr.addFlashAttribute("sucess", "pacote.edit.sucess");
 		return "redirect:/pacotes/listar";
 	}
 
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
 		pacoteService.excluir(id);
-		attr.addFlashAttribute("sucess", "livro.delete.sucess");
+		attr.addFlashAttribute("sucess", "pacote.delete.sucess");
 		return "redirect:/pacotes/listar";
 	}
 

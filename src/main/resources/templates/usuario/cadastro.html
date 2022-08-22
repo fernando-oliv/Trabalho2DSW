@@ -7,7 +7,7 @@
 	<section class="layout-content" layout:fragment="corpo">
 
 		<nav class="navbar navbar-expand-md bg-light">
-			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<div sec:authorize="hasRole('ROLE_ADMIN')" class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><i class="oi oi-caret-right"></i>
 						<span th:text="#{usuario.cadastrar.label}"></span></li>
@@ -42,7 +42,7 @@
 
 					<div class="form-group col-md-6">
 						<label th:text="#{usuario.password.label}" for="password"></label> 
-						<input type="text" class="form-control" id="password"
+						<input type="password" class="form-control" id="password"
 							th:placeholder="#{usuario.password.label}" autofocus="autofocus"
 							th:field="*{password}"
 							th:classappend="${#fields.hasErrors('password')} ? is-invalid" th:readonly="${usuario.id != null}"/>
@@ -79,7 +79,7 @@
 						<label th:text="#{usuario.role.label}" for="role"></label> 
 						<select id="role" class="form-control" th:field="*{role}"
 							th:classappend="${#fields.hasErrors('role')} ? is-invalid">
-							<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+							<option sec:authorize="hasRole('ROLE_ADMIN')" value="ROLE_ADMIN">ROLE_ADMIN</option>
 							<option value="ROLE_USER">ROLE_USER</option>
 						</select>
 
