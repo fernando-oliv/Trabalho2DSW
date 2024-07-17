@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.0</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.ufscar.dc.dsw</groupId>
 	<artifactId>JamesVacation</artifactId>
@@ -84,7 +84,7 @@
 		<dependency>
 			<groupId>org.webjars.bower</groupId>
 			<artifactId>jquery-mask-plugin</artifactId>
-			<version>1.14.15</version>
+			<version>1.14.16</version>
 		</dependency>
 
 		<dependency>
